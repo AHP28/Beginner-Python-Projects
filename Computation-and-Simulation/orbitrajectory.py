@@ -29,18 +29,6 @@ def calc(t, dt, x, y, vx_o, vy_o): #calculates the parameters sequencially
     t+=dt
     return t, vx, vy, ax, ay, x, y
 
-# to find the text file from the same directory
-script_dir = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(script_dir, "param.txt")
-file_path2 = os.path.join(script_dir, "orbitout.txt")
-
-#data read from a file
-with open(file_path, "r") as f: #reads initial parameters off of a file
-  t, dt, x, y, vx, vy = list(map(float, f.readline().split()))
-
-f.close()
-
-
 '''x = 0.70
 y = 0.0
 vx = 0.0
@@ -48,28 +36,48 @@ vy = 1.0
 t = 0.0
 dt = 0.1'''
 
-lx, ly = [], [] #to store the x and y positions at each timestep
-
-with open(file_path2, 'w') as g: #stores all the output parameters
-    for i in range(250): #number of iterations
-        t, vx, vy, ax, ay, x, y = calc(t, dt, x, y, vx, vy) #nth iteration calculation and assignment
-        lx.append(x)
-        ly.append(y)
-        print(f"after t={t} seconds, the parameters estimated: ", file=g)
-        print(f"vertical velocity and acceleration: {vy} and {ay}", file=g)
-        print(f"horizontal velocity and acceleration: {vx} and {ax}", file=g)
-        print(f"current coordinate: x = {x}, y = {y}", file=g)
+def run(n):
+    # to find the text file from the same directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, "param.txt")
+    file_path2 = os.path.join(script_dir, f"orbitout{n}.txt")
+    #data read from a file
+    with open(file_path, "r") as f: #reads initial parameters off of a file
+        t, dt, x, y, vx, vy = list(map(float, f.readline().split()))
+    f.close()
+    lx, ly = [], [] #to store the x and y positions at each timestep
+    with open(file_path2, 'w') as g: #stores all the output parameters
+        for _ in range(n): #number of iterations
+            t, vx, vy, ax, ay, x, y = calc(t, dt, x, y, vx, vy) #nth iteration calculation and assignment
+            lx.append(x)
+            ly.append(y)
+            print(f"after t={t} seconds, the parameters estimated: ", file=g)
+            print(f"vertical velocity and acceleration: {vy} and {ay}", file=g)
+            print(f"horizontal velocity and acceleration: {vx} and {ax}", file=g)
+            print(f"current coordinate: x = {x}, y = {y}", file=g)
     g.close()
+    return lx, ly
 
 #plotting the trajectories
-plt.plot(lx, ly, 'ro')
-plt.title("Planet orbit trajectory due to gravitation")
-plt.xlabel("x-position of planet")
-plt.ylabel("y-position of planet")
-plt.axis([-2, 2, -2, 2])
+lx1, ly1 = run(10)
+lx2, ly2 = run(25)
+lx3, ly3 = run(50)
+lx4, ly4 = run(100)
+lx = [lx1, lx2, lx3, lx4]
+ly = [ly1, ly2, ly3, ly4]
+
+
+fig, axes = plt.subplots(2, 2, figsize=(10, 10))
+axes = axes.ravel()
+for i, (x, y) in enumerate(zip(lx, ly)):
+    axes[i].plot(x, y, 'ro')
+    axes[i].axis([-2*max(x), 2*max(x), -2*max(y), 2*max(y)])
+    axes[i].set_xlabel(f'x position of planet')
+    axes[i].set_ylabel(f'y position of planet')
+    axes[i].set_title(f"Orbital trajectory after {len(x)} iterations", pad=-20)
+plt.tight_layout(h_pad=5.0)
 plt.show()
 
-    
     
     
      
