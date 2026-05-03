@@ -1,0 +1,40 @@
+after t=0.1 seconds, the parameters estimated: 
+vertical velocity and acceleration: 1.0 and -0.0
+horizontal velocity and acceleration: -0.1388888888888889 and -2.7777777777777777
+current coordinate: x = 0.5861111111111111, y = 0.1
+after t=0.2 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.9762131171883013 and -0.4757376562339745
+horizontal velocity and acceleration: -0.2783064520352342 and -2.788351262926906
+current coordinate: x = 0.5582804659075877, y = 0.19762131171883013
+after t=0.30000000000000004 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.9286421407194397 and -0.9514195293772301
+horizontal velocity and acceleration: -0.41269452321907885 and -2.6877614236768927
+current coordinate: x = 0.5170110135856798, y = 0.29048552579077414
+after t=0.4 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.859000520423004 and -1.3928324059287136
+horizontal velocity and acceleration: -0.5366438477136242 and -2.4789864898909055
+current coordinate: x = 0.4633466288143174, y = 0.3763855778330745
+after t=0.5 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.7705344989334532 and -1.7693204297910163
+horizontal velocity and acceleration: -0.6455492767095711 and -2.1781085799189372
+current coordinate: x = 0.39879170114336027, y = 0.45343902772641986
+after t=0.6 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.6675695821514422 and -2.0592983356402192
+horizontal velocity and acceleration: -0.7361051217312682 and -1.8111169004339414
+current coordinate: x = 0.32518118897023346, y = 0.5201959859415641
+after t=0.7 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.5549134372754284 and -2.2531228975202757
+horizontal velocity and acceleration: -0.8065279241473181 and -1.4084560483209978
+current coordinate: x = 0.24452839655550163, y = 0.575687329669107
+after t=0.7999999999999999 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.43727704675800577 and -2.352727810348453
+horizontal velocity and acceleration: -0.8564950442615231 and -0.9993424022840992
+current coordinate: x = 0.1588788921293493, y = 0.6194150343449075
+after t=0.8999999999999999 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.318837095052953 and -2.368799034101055
+horizontal velocity and acceleration: -0.8868746883892346 and -0.6075928825542277
+current coordinate: x = 0.07019142329042584, y = 0.6512987438502028
+after t=0.9999999999999999 seconds, the parameters estimated: 
+vertical velocity and acceleration: 0.20298955068338603 and -2.316950887391339
+horizontal velocity and acceleration: -0.8993597485874635 and -0.24970120396457848
+current coordinate: x = -0.019744551568320515, y = 0.6715976989185414
